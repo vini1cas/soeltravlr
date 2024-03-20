@@ -3,11 +3,13 @@
 {% block content %}
 
 
-<h1>{{post.title}}</h1>
-<small>By {{post.author}}</small>
-{{post.body}}
+<h1>{{travel.title}}</h1>
+<small>By {{travel.author}}</small>
+<small><a href="{% url 'edit-travel' travel.pk %}">(Edit Travel)</a></small>
+<small><a href="{% url 'delete-travel' travel.pk %}">(Delete Travel)</a></small>
+{{travel.body}}
 
-<a href="{% url 'landing' %}"></a>
+<a href="{% url 'landing' %}">Back</a>
 
 
 {% endblock %}

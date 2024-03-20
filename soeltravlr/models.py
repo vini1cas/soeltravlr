@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.urls import reverse
+from datetime import date, datetime
 
 SEASONS = (
     ('Summer', 'Summer'),
@@ -9,7 +10,6 @@ SEASONS = (
     ('Fall', 'Fall'),
     ('Winter', 'Winter')
     )
-    
 
 
 # Create your models here.

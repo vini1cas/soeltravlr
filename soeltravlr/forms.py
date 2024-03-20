@@ -13,3 +13,4 @@ class TravelForm(forms.ModelForm):
             'travel_date' : forms.TextInput(attrs={'class': 'form-control'}),
             'rating' : forms.Select(attrs={'class': 'form-control'})
         }
+

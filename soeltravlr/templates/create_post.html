@@ -2,10 +2,13 @@
 
 {% block content %}
 
-<form method="POST" action=""></form>
-{% csrf_token %}
-{{ form.as_p }}
+<div class="form-group">
+    <form method="POST" action=""></form>
+    {% csrf_token %}
+    {{ form.as_p }}
 
-<button>Post</button>
+    <button type="button" class="btn btn-light">Post</button>
 
+    <a href="{% url 'landing' %}">Back</a>
+</div>
 {% endblock %}

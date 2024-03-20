@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="form-group">
+    <form method="POST" action=""></form>
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="button" class="btn btn-light">Edit Travel</button>
+    <button type="button" class="btn btn-light"><a href="{% url 'delete-travel' travel.pk %}">(Delete Travel)</a></button>
+    <a href="{% url 'travel-detail' %}">Back</a>
+</div>
+{% endblock %}
+<small><a href="{% url 'delete-travel' travel.pk %}">(Delete Travel)</a></small>

@@ -3,12 +3,12 @@
 {% block content %}
     
 
-<h1>Hello {{User}}</h1>
-<button><a href="{% url 'make-post' %}">Make A Post Here!</a></button>
+<h1>Hello {{travel.author}}</h1>
+<button><a href="{% url 'make-travel' %}">Make A Post Here!</a></button>
 <ul>
     {% for post in object_list %}
-    <li><a href = "{% url 'post-detail' post.pk %}">{{post.title}}</a>, {{post.author}}<br>
-    {{post.bode}}</li>
+    <li><a href = "{% url 'travel-detail' travel.pk %}">{{travel.title}}</a>, {{travel.author}}<br>
+    {{travel.body}}</li>
     {% endfor %}
 </ul>
 

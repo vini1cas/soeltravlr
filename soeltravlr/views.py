@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Travel, Profile
 from .forms import TravelForm
+from django.urls import reverse_lazy
 
 # Create your views here.
 # def landing(request):
@@ -11,11 +12,21 @@ class Landing(ListView):
     model = Travel
     template_name = 'home.html'
 
-class IntoPost(DetailView):
+class IntoTravel(DetailView):
     model = Travel
     template_name = 'post_detail.html'
 
-class MakePost(CreateView):
+class MakeTravel(CreateView):
     model = Travel
     template_name = 'create_post.html'
     form_class = TravelForm
+
+class EditTravel(UpdateView):
+    model = Travel
+    template_name = 'edit_post.html'
+    form_class = TravelForm
+
+class DeleteTravel(DeleteView):
+    model = Travel
+    template_name = 'delete_post.html'
+    success_url = reverse_lazy('landing')

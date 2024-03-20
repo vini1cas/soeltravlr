@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="form-group">
+    <form method="POST" action=""></form>
+    {{ travel.title }}
+    {% csrf_token %}
+
+    <button type="button" class="btn btn-light">Delete</button>
+    
+    <a href="{% url 'travel-detail' %}">Back</a>
+</div>
+{% endblock %}
