@@ -26,7 +26,7 @@ class Travel(models.Model):
     )
     season = models.CharField(choices=SEASONS)
     travel_date = models.CharField()
-    # image = models.ImageField(upload_to="reviews/", null=False, blank=False)
+    image = models.ImageField(upload_to="static/images/", null=False, blank=False, default="")
     review_date = models.DateField()
     like = models.ManyToManyField(User, related_name = 'blog_travel')
 
