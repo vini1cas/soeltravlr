@@ -29,25 +29,22 @@
             {% if user.is_authenticated %}
 
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'profile' %}">My Profile</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'profile' request.user.id %}">My Profile</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'make-travel' %}">Make A Travel</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'edit-profile' %}">Edit Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+              <a class="nav-link" href="accounts/logout/">Log Out</a>
             </li>
             
             {% else %}
 
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'sign-up' %}">Sign Up</a>
+              <a class="nav-link" href="/accounts/signup/">Sign Up</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'login' %}">Log In</a>
+              <a class="nav-link" href="accounts/login/">Log In</a>
             </li>
 
             {% endif %}
