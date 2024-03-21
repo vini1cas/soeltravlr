@@ -11,6 +11,7 @@ class TravelForm(forms.ModelForm):
             'body' : forms.Textarea(attrs={'class': 'form-control'}),
             'season' : forms.Select(attrs={'class': 'form-control'}),
             'travel_date' : forms.TextInput(attrs={'class': 'form-control'}),
-            'rating' : forms.Select(attrs={'class': 'form-control'})
+            'rating' : forms.Select(attrs={'class': 'form-control'}),
+            'image': forms.ImageField(attrs={'class': ''}),
         }
 

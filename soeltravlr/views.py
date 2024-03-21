@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views import generic
 from .models import Travel, Profile
 from .forms import TravelForm
 from django.urls import reverse_lazy, reverse
@@ -23,6 +24,12 @@ class IntoProfile(DetailView):
         user = get_object_or_404(Profile, id=self.kwargs['pk'])
         meta['user'] = user
         return meta
+
+class ProfileEdit(generic.UpdateView):
+    model = Profile
+    template_name = 'edit-profile.html'
+    fields = ['bio', 'pic','social_media', 'website']
+    success_url = reverse_lazy('profile')
 
 class IntoTravel(DetailView):
     model = Travel

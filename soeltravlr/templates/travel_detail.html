@@ -29,6 +29,8 @@
     {% else %}
         <button type="submit" name="travel_id", value="{{ travel.id }}" class="btn btn-primary btn-sm">Like</button> - {{ total_likes }} Likes
     {% endif %}
+    <br>
+    
 </form>
 {% endif %}
 
@@ -50,6 +52,14 @@
       </div>
     </div>
   </div>
+  {% for comment in travel.travel_comments.all %}
+    {{ comment.author}}
+    {{ comment.created_on}}
+    <br>
+    <hr>
+    {{ comment.body}}
+    <hr>
+    {% endfor %}
 
 
 <a href="{% url 'landing' %}">Back</a>
