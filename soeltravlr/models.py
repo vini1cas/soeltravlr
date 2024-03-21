@@ -28,6 +28,10 @@ class Travel(models.Model):
     travel_date = models.CharField()
     # image = models.ImageField(upload_to="reviews/", null=False, blank=False)
     review_date = models.DateField()
+    like = models.ManyToManyField(User, related_name = 'blog_travel')
+
+    def likes(self):
+        return self.like.count()
 
     class Meta:
         ordering = ["-travel_date"]

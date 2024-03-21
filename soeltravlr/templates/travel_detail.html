@@ -8,11 +8,24 @@
 <small>By {{travel.author}} {{travel.travel_date}}</small>
 
 {% if user.is_authenticated %}
+{% if user.id == travel.author.id %}
 
-<small><a href="{% url 'edit-travel' travel.pk %}">(Edit Travel)</a></small>
-<small><a href="{% url 'delete-travel' travel.pk %}">(Delete Travel)</a></small>
+    <small><a href="{% url 'edit-travel' travel.pk %}">(Edit Travel)</a></small>
+    <small><a href="{% url 'delete-travel' travel.pk %}">(Delete Travel)</a></small>
+{% endif %}
+{% endif %}
+
 {{travel.body}}
 
+{% if user.is_authenticated %}
+    <form action="{% url 'like-travel' travel.pk %}" method="POST">
+    {% csrf_token %}
+    {% if liked %}
+        <button type="submit" name="travel_id", value="{{ travel.id }}" class="btn btn-danger btn-sm">Unlike</button>
+    {% else %}
+        <button type="submit" name="travel_id", value="{{ travel.id }}" class="btn btn-primary btn-sm">Like</button> - {{ total_likes }} Likes
+    {% endif %}
+</form>
 {% endif %}
 <a href="{% url 'landing' %}">Back</a>
 
