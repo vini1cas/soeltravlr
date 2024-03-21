@@ -30,7 +30,7 @@ class Travel(models.Model):
     review_date = models.DateField()
 
     class Meta:
-        ordering = ["-review_date"]
+        ordering = ["-travel_date"]
 
     def __str__(self):
         return self.title + ', by ' + str(self.author)
@@ -51,7 +51,7 @@ class Comment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ["created_on"]
+        ordering = ["-created_on"]
 
     def __str__(self):
         return f"Comment {self.body}  by {self.author}"

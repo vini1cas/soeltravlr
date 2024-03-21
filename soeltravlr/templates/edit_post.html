@@ -2,6 +2,9 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
+{% if user.id == travel.author.id %}
+
 <div class="form-group">
     <form method="POST" action=""></form>
     {% csrf_token %}
@@ -11,5 +14,9 @@
     <button type="button" class="btn btn-light"><a href="{% url 'delete-travel' travel.pk %}">(Delete Travel)</a></button>
     <a href="{% url 'travel-detail' %}">Back</a>
 </div>
+
+{% endif %}
+{% endif %}
+
 {% endblock %}
 <small><a href="{% url 'delete-travel' travel.pk %}">(Delete Travel)</a></small>

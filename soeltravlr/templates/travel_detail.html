@@ -1,14 +1,19 @@
 {% extends 'base.html' %}
+{%'home.html' %}
 
 {% block content %}
 
 
 <h1>{{travel.title}}</h1>
-<small>By {{travel.author}}</small>
+<small>By {{travel.author}} {{travel.travel_date}}</small>
+
+{% if user.is_authenticated %}
+
 <small><a href="{% url 'edit-travel' travel.pk %}">(Edit Travel)</a></small>
 <small><a href="{% url 'delete-travel' travel.pk %}">(Delete Travel)</a></small>
 {{travel.body}}
 
+{% endif %}
 <a href="{% url 'landing' %}">Back</a>
 
 

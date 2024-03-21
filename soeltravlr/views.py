@@ -14,19 +14,19 @@ class Landing(ListView):
 
 class IntoTravel(DetailView):
     model = Travel
-    template_name = 'post_detail.html'
+    template_name = 'travel_detail.html'
 
 class MakeTravel(CreateView):
     model = Travel
-    template_name = 'create_post.html'
+    template_name = 'create_travel.html'
     form_class = TravelForm
 
 class EditTravel(UpdateView):
     model = Travel
-    template_name = 'edit_post.html'
+    template_name = 'edit_travel.html'
     form_class = TravelForm
 
 class DeleteTravel(DeleteView):
     model = Travel
-    template_name = 'delete_post.html'
+    template_name = 'delete_travel.html'
     success_url = reverse_lazy('landing')

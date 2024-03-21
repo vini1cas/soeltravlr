@@ -1,3 +1,8 @@
+
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
+
 <!doctype html>
 <html lang="ar" dir="rtl">
   <head>
@@ -13,21 +18,36 @@
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{}">Soeltravlr</a>
+        <a class="navbar-brand" href="{% url 'landing' %}">Soeltravlr</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
+
+            {% if user.is_authenticated %}
+
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'landing' %}">My Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'make-post' %}">Make A Post</a>
+              <a class="nav-link" href="{% url 'make-travel' %}">Make A Travel</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Log Out</a>
+              <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
             </li>
+            
+            {% else %}
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'sign-up' %}">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Log In</a>
+            </li>
+
+            {% endif %}
+            
           </ul>
         </div>
       </div>

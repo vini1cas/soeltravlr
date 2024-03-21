@@ -4,11 +4,11 @@
 
 <div class="form-group">
     <form method="POST" action=""></form>
-    {{ travel.title }}
     {% csrf_token %}
+    {{ form.as_p }}
 
-    <button type="button" class="btn btn-light">Delete</button>
-    
-    <a href="{% url 'travel-detail' %}">Back</a>
+    <button type="button" class="btn btn-light">Sign Up</button>
+
+    <a href="{% url 'landing' %}">Back</a>
 </div>
 {% endblock %}

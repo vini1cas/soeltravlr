@@ -1,6 +1,6 @@
 
 from django.urls import path
-from .views import Landing, IntoTravel, MakeTravel, EditTravel
+from .views import Landing, IntoTravel, MakeTravel, EditTravel, DeleteTravel
 
 urlpatterns = [
     path('', Landing.as_view(), name="landing"),

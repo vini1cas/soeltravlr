@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
+
+{% if user.is_authenticated %}
 
 <h1>Hello {{travel.author}}</h1>
 <button><a href="{% url 'make-travel' %}">Make A Post Here!</a></button>
 <ul>
     {% for post in object_list %}
-    <li><a href = "{% url 'travel-detail' travel.pk %}">{{travel.title}}</a>, {{travel.author}}<br>
+    <li><a href = "{% url 'travel-detail' travel.pk %}">{{travel.title}}</a>, {{travel.author}} {{travel.travel_date}}<br>
     {{travel.body}}</li>
     {% endfor %}
 </ul>
 
+{% endif %}
 
 {% endblock %}
