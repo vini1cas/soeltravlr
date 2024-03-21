@@ -44,11 +44,18 @@ class Travel(models.Model):
 
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)
+    bio = models.TextField(max_length=1000, default="")
+    pic = models.ImageField(upload_to="static/images/", null=True, blank=True, default="")
+    social_media = models.CharField(max_length=500, null=True, blank=True)
+    website = models.CharField(max_length=250, null=True, blank=True)
+
+    def __str__(self):
+        return str(self.user)
 
 class Comment(models.Model):
     author = models.ForeignKey(
         User, on_delete = models.CASCADE)
-    body = models.TextField(max_length=500)
+    body = models.CharField(max_length=500)
     travel = models.ForeignKey(
         Travel, on_delete=models.CASCADE, related_name="travel_comments"
     )

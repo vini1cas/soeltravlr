@@ -5,7 +5,7 @@
 {% if user.is_authenticated %}
 
 <div class="form-group">
-    <form method="POST" action=""></form>
+    <form method="POST" enctype="multipart/form-data" action=""></form>
     {% csrf_token %}
     {{ form.as_p }}
 

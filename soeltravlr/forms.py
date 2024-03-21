@@ -4,7 +4,7 @@ from .models import Travel, Comment
 class TravelForm(forms.ModelForm):
     class Meta:
         model = Travel
-        fields = ('title', 'body', 'season', 'travel_date', 'rating')
+        fields = ('title', 'body', 'season', 'travel_date', 'rating', 'image')
 
         widgets = {
             'title' : forms.TextInput(attrs={'class': 'form-control'}),

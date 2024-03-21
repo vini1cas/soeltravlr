@@ -15,6 +15,10 @@
 {% endif %}
 {% endif %}
 
+{% if travel.image %}
+<img src="{{ travel.image.url}}" alt="{{ travel.title }}">
+{% endif %}
+
 {{travel.body}}
 
 {% if user.is_authenticated %}
@@ -27,6 +31,9 @@
     {% endif %}
 </form>
 {% endif %}
+
+{{ post.author.profile.pic}}
+{{ post.author.profile.bio}}
 <a href="{% url 'landing' %}">Back</a>
 
 
