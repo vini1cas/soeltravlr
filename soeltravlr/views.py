@@ -13,6 +13,17 @@ class Landing(ListView):
     model = Travel
     template_name = 'home.html'
 
+class IntoProfile(DetailView):
+    model = Profile 
+    template_name = 'profile.html'
+
+    def get_meta_data (self, *args, **kwargs):
+        meta = super(IntoProfile, self).get_context_data(*args, **kwargs)
+
+        user = get_object_or_404(Profile, id=self.kwargs['pk'])
+        meta['user'] = user
+        return meta
+
 class IntoTravel(DetailView):
     model = Travel
     template_name = 'travel_detail.html'
